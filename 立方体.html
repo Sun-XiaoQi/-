@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/* .wrap:hover .box{
+			transform:rotateZ(360deg) rotateX(90deg) rotate(30deg);
+		} */
+		.box{
+			width: 200px;
+			height: 200px;
+			position: relative;
+			/*perspective:1000px;*/
+			transform-style: preserve-3d;
+			margin: 100px auto;
+			/*transform-origin:100px 100px -100px;*/
+			/*transform:rotateY(45deg) rotateX(30deg);*/
+			/*transform:rotate3d(10,10,10,20deg);*/
+			/*transition:all 2s;*/
+			animation:animDome 5s alternate infinite;
+		}
+		@keyframes animDome{
+			0%{
+
+			}
+			30%{
+				transform:rotateY(45deg) rotateX(-30deg);
+			}
+			60%{
+				transform:rotateY(-45deg) rotateX(50deg);
+			}
+			80%{
+				transform:rotateY(-180deg) rotateX(70deg);
+
+			}
+			to{
+				transform:rotateY(180deg) rotateX(-90deg);
+			}
+		}
+		.box div{
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			/*top: 0;*/
+			left: 0;
+		}
+		.box div span{
+			width: 60px;
+			height: 60px;
+			line-height: 60px;
+			text-align:center;
+			margin: 3px 1px;
+			border-radius: 5px;
+			display: none;
+		}
+		.box:hover{
+			animation-play-state: paused;
+			/*animation:move1 2s linear;*/
+		}
+		.box:hover .left{
+			animation:move1 2s linear forwards;
+		}
+		.left{
+			transform-origin:left;
+			transform:rotateY(-90deg);
+			transition:all 1s;
+		}
+		@keyframes move1{
+			from{
+				transform:rotateY(-90deg);
+			}
+			to{
+				transform:rotateY(-180deg);
+			}
+		}
+		.left span{
+			background: orange;
+			text-align:center;
+			line-height: 60px;
+		}
+		.right{
+			transform-origin:right;
+			transform:rotateY(90deg);
+			transition:all 1s 1s;
+		}
+		.box:hover .right{
+			animation:move2 2s  linear forwards;
+		}
+		@keyframes move2{
+			from{
+				transform:rotateY(90deg);
+			}
+			to{
+				transform:rotateY(180deg);
+			}
+		}
+		.right span{
+			background: pink;
+			text-align:center;
+			line-height: 60px;
+		}
+		.top{
+			transform-origin:top;
+			transform:rotateX(90deg);
+			transition:all 1s 2s;
+		}
+		.box:hover .top{
+			animation:move3 2s 2s linear forwards;
+		}
+		@keyframes move3{
+			from{
+				transform:rotateX(90deg);
+			}
+			to{
+				transform:rotateX(180deg);
+			}
+		}
+		.top span{
+			background: blue;
+		}
+		.bottom{
+			transform-origin:bottom;
+			transform:rotateX(-90deg);
+			transition:all 1s 3s;
+		}
+		.box:hover .bottom{
+			animation:move4 2s 2s linear forwards;
+		}
+		@keyframes move4{
+			from{
+				transform:rotateX(-90deg);
+			}
+			to{
+				transform:rotateX(-180deg);
+			}
+		}
+		.bottom span{
+			background: green;
+		}
+		.before{
+			transform-origin:left;
+			transform:translateZ(200PX);
+			transition:all 1s 4s;
+		}
+		.box:hover .before{
+			animation:move5 2s 4s linear forwards;
+		}
+		@keyframes move5{
+			from{
+				transform:translateX(0) translateZ(200px);
+			}
+			to{
+				transform:translateX(400px) translateZ(0px);
+			}
+		}
+		.before span{
+			background: red;
+		}
+		.after{
+		}
+		.after span{
+			background: #f10582;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="box">
+			<div class="left">
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+				<span>6</span>
+				<span>7</span>
+				<span>8</span>
+				<span>9</span>
+			</div>
+			<div class="right">
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+				<span>6</span>
+				<span>7</span>
+				<span>8</span>
+				<span>9</span>
+			</div>
+			<div class="before">
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+				<span>6</span>
+				<span>7</span>
+				<span>8</span>
+				<span>9</span>
+			</div>
+			<div class="after">
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+				<span>6</span>
+				<span>7</span>
+				<span>8</span>
+				<span>9</span>
+			</div>
+			<div class="top">
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+				<span>6</span>
+				<span>7</span>
+				<span>8</span>
+				<span>9</span>
+			</div>
+			<div class="bottom">
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+				<span>6</span>
+				<span>7</span>
+				<span>8</span>
+				<span>9</span>
+			</div>
+	</div>
+
+
+	</div>
+	
+
+	<script>
+	var sps=document.querySelectorAll("span");
+	var arr=[];
+	for (var i = 0; i < sps.length; i++) {
+		arr.push(sps[i]);
+	};
+	//arr.sort();
+	// console.log(arr);
+	var count=0;
+	var num=0;
+	var timer=setInterval(function(){
+		count=Math.floor(Math.random()*arr.length);
+
+	console.log(arr.length);
+		// if(num !=count){
+				arr[count].style.display="inline-block";
+				arr.splice(count,1);
+				if(arr.length==0){
+			clearInterval(timer);
+		}
+		// num = count;
+		// }
+
+		
+	},1000);
+		/*var box=document.querySelector(".box");
+		var left=document.querySelector(".left");
+		var right=document.querySelector(".right");
+		var before=document.querySelector(".before");
+		var after=document.querySelector(".after");
+		var topb=document.querySelector(".top");
+		console.log(top);
+		var bottom=document.querySelector(".bottom");
+		box.onmouseenter=function(){
+			clearInterval(timer);
+			left.style.transform="rotateY(-180deg)";
+			right.style.transform="rotateY(180deg)";
+			topb.style.transform="rotateX(180deg)";
+			bottom.style.transform="rotateX(-180deg)";
+			before.style.transform="translateX(400px)";
+
+
+		}
+		var i=0;
+		var timer=null;
+		timer=setInterval(function(){
+			if(i==4){i=0;}
+			box.style.transform="rotateX("+i*90+"deg)";
+			i++;
+			console.log(1);
+			 // clearInterval(timer);
+		},2000);*/
+	</script>
+</body>
+</html>
